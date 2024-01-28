@@ -13,7 +13,7 @@ import tensorflow as tf
 import tensorflow_hub as hub
 import librosa
 
-p_path = os.path.join('/Users/rishi/Desktop/DL for Audio Classification/Rishi_2/pickles', 'conv.p')
+p_path = os.path.join('./pickles', 'conv.p')
 with open(p_path, 'rb') as handle:
     config = pickle.load(handle)
 classes = ['Acoustic_guitar', 'Bass_drum', 'Cello', 'Clarinet', 'Double_bass', 'Flute', 'Hi_hat', 'Saxophone', 'Snare_drum', 'Violin_or_fiddle']
@@ -55,11 +55,11 @@ mp3_file = st.file_uploader("Upload a wav file", type=["wav"])
 # mp3_file = st_audiorec()
 
 if mp3_file is not None:
-   save_wav_file(mp3_file,'/Users/rishi/Desktop/DL for Audio Classification/Rishi_2/database/')
-   signal, rate = librosa.load('/Users/rishi/Desktop/DL for Audio Classification/Rishi_2/database/'+mp3_file.name, sr=16000)
+   save_wav_file(mp3_file,'./database/')
+   signal, rate = librosa.load('./database/'+mp3_file.name, sr=16000)
    mask = envelope(signal, rate, 0.0005)
-   wavfile.write(filename='/Users/rishi/Desktop/DL for Audio Classification/Rishi_2/cleaned_database'+mp3_file.name, rate=rate, data=signal[mask])
-   rate, wav = wavfile.read('/Users/rishi/Desktop/DL for Audio Classification/Rishi_2/cleaned_database'+mp3_file.name)
+   wavfile.write(filename='./cleaned_database'+mp3_file.name, rate=rate, data=signal[mask])
+   rate, wav = wavfile.read('./cleaned_database'+mp3_file.name)
    st.audio(wav, format='audio/wav', start_time=0, sample_rate=rate)
 
    y_prob = []
