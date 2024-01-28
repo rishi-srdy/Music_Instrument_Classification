@@ -2,13 +2,10 @@ import pickle
 import os
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
 from scipy.io import wavfile
 from python_speech_features import mfcc
 from keras.models import load_model
-from sklearn.metrics import accuracy_score
 import streamlit as st
-# from streamlit_audio_recorder import st_audiorec
 import tensorflow as tf
 import tensorflow_hub as hub
 import librosa

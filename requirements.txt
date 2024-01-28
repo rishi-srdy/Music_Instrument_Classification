@@ -1,11 +1,9 @@
 os
 numpy 
 pandas 
-tqdm 
 scipy.io 
 python_speech_features 
-keras.models 
-sklearn.metrics 
+keras.models
 streamlit 
 tensorflow 
 tensorflow_hub 
